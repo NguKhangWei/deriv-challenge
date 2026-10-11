@@ -1,0 +1,278 @@
+{
+  "meta": {
+    "mode": "offline",
+    "llm_model": null,
+    "classifier": "rules",
+    "retriever": "bm25",
+    "generator": "extractive",
+    "ticket_count": 5,
+    "article_count": 5,
+    "article_intents": {
+      "A1": "deposit_issue",
+      "A2": "password_reset",
+      "A3": "withdrawal_issue",
+      "A4": "account_lock",
+      "A5": "trading_advice_request"
+    }
+  },
+  "tickets": [
+    {
+      "ticket_id": "T1",
+      "message_preview": "I deposited by bank card two hours ago but my balance still shows zero. What should I check?",
+      "language": "en",
+      "screening_notes": [],
+      "classification": {
+        "intent": "deposit_issue",
+        "source": "rules",
+        "certainty": 1.0,
+        "scores": {
+          "deposit_issue": 5.0,
+          "password_reset": 0,
+          "withdrawal_issue": 0,
+          "account_lock": 0,
+          "trading_advice_request": 0
+        },
+        "conflicting": false,
+        "reasons": [
+          "top intent deposit_issue=5.0, runner-up account_lock=0"
+        ]
+      },
+      "retrieval": [
+        {
+          "article_id": "A1",
+          "title": "Card deposit processing times",
+          "score": 5.2246
+        }
+      ],
+      "route": "grounded",
+      "route_reason": "kb",
+      "generator": "extractive",
+      "generator_notes": [],
+      "grounding": {
+        "coverage": 1.0,
+        "unsupported_lines": [],
+        "claim_hits": []
+      },
+      "confidence": 0.92,
+      "confidence_breakdown": {
+        "classifier": 1.0,
+        "retrieval": 0.7232,
+        "agreement": 1.0,
+        "grounding": 1.0
+      },
+      "needs_human_escalation": false,
+      "escalation_reasons": [
+        "confident grounded answer (confidence 0.92) with no policy or account-specific risk"
+      ],
+      "safety_flags": [],
+      "validation_errors": []
+    },
+    {
+      "ticket_id": "T2",
+      "message_preview": "I forgot my password and I am not receiving the reset email.",
+      "language": "en",
+      "screening_notes": [],
+      "classification": {
+        "intent": "password_reset",
+        "source": "rules",
+        "certainty": 1.0,
+        "scores": {
+          "deposit_issue": 0,
+          "password_reset": 9.0,
+          "withdrawal_issue": 0,
+          "account_lock": 0,
+          "trading_advice_request": 0
+        },
+        "conflicting": false,
+        "reasons": [
+          "top intent password_reset=9.0, runner-up account_lock=0"
+        ]
+      },
+      "retrieval": [
+        {
+          "article_id": "A2",
+          "title": "Password reset troubleshooting",
+          "score": 7.7774
+        }
+      ],
+      "route": "grounded",
+      "route_reason": "kb",
+      "generator": "extractive",
+      "generator_notes": [],
+      "grounding": {
+        "coverage": 1.0,
+        "unsupported_lines": [],
+        "claim_hits": []
+      },
+      "confidence": 0.94,
+      "confidence_breakdown": {
+        "classifier": 1.0,
+        "retrieval": 0.7954,
+        "agreement": 1.0,
+        "grounding": 1.0
+      },
+      "needs_human_escalation": false,
+      "escalation_reasons": [
+        "confident grounded answer (confidence 0.94) with no policy or account-specific risk"
+      ],
+      "safety_flags": [],
+      "validation_errors": []
+    },
+    {
+      "ticket_id": "T3",
+      "message_preview": "Why was my withdrawal declined after verification?",
+      "language": "en",
+      "screening_notes": [
+        "answer requires the client's own account records or an account action"
+      ],
+      "classification": {
+        "intent": "withdrawal_issue",
+        "source": "rules",
+        "certainty": 0.95,
+        "scores": {
+          "deposit_issue": 0,
+          "password_reset": 0,
+          "withdrawal_issue": 4.5,
+          "account_lock": 0,
+          "trading_advice_request": 0
+        },
+        "conflicting": false,
+        "reasons": [
+          "top intent withdrawal_issue=4.5, runner-up account_lock=0"
+        ]
+      },
+      "retrieval": [
+        {
+          "article_id": "A3",
+          "title": "Withdrawal review and declines",
+          "score": 5.2873
+        }
+      ],
+      "route": "grounded",
+      "route_reason": "kb",
+      "generator": "extractive",
+      "generator_notes": [],
+      "grounding": {
+        "coverage": 1.0,
+        "unsupported_lines": [],
+        "claim_hits": []
+      },
+      "confidence": 0.9,
+      "confidence_breakdown": {
+        "classifier": 0.95,
+        "retrieval": 0.7255,
+        "agreement": 1.0,
+        "grounding": 1.0
+      },
+      "needs_human_escalation": true,
+      "escalation_reasons": [
+        "answer requires the client's own account records",
+        "policy-sensitive topic (withdrawal_issue)"
+      ],
+      "safety_flags": [
+        "account_specific_request",
+        "policy_sensitive"
+      ],
+      "validation_errors": []
+    },
+    {
+      "ticket_id": "T4",
+      "message_preview": "Can you tell me which asset will go up today so I can make profit?",
+      "language": "en",
+      "screening_notes": [],
+      "classification": {
+        "intent": "trading_advice_request",
+        "source": "rules:advice",
+        "certainty": 1.0,
+        "scores": {
+          "deposit_issue": 0,
+          "password_reset": 0,
+          "withdrawal_issue": 0,
+          "account_lock": 0,
+          "trading_advice_request": 2.0
+        },
+        "conflicting": false,
+        "reasons": [
+          "matched a trading-advice / prediction request pattern"
+        ]
+      },
+      "retrieval": [
+        {
+          "article_id": "A5",
+          "title": "No investment or trading advice",
+          "score": 3.0224
+        }
+      ],
+      "route": "refusal",
+      "route_reason": "advice",
+      "generator": "template:refusal",
+      "generator_notes": [],
+      "grounding": {
+        "coverage": 1.0,
+        "unsupported_lines": [],
+        "claim_hits": []
+      },
+      "confidence": 0.95,
+      "confidence_breakdown": {},
+      "needs_human_escalation": false,
+      "escalation_reasons": [
+        "trading-advice request refused per policy; refusal is fixed, so no escalation"
+      ],
+      "safety_flags": [
+        "advice_request"
+      ],
+      "validation_errors": []
+    },
+    {
+      "ticket_id": "T5",
+      "message_preview": "My account was locked after too many login attempts. What do I do now?",
+      "language": "en",
+      "screening_notes": [],
+      "classification": {
+        "intent": "account_lock",
+        "source": "rules",
+        "certainty": 1.0,
+        "scores": {
+          "deposit_issue": 0,
+          "password_reset": 0,
+          "withdrawal_issue": 0,
+          "account_lock": 6.0,
+          "trading_advice_request": 0
+        },
+        "conflicting": false,
+        "reasons": [
+          "top intent account_lock=6.0, runner-up deposit_issue=0"
+        ]
+      },
+      "retrieval": [
+        {
+          "article_id": "A4",
+          "title": "Account lock after failed sign-in attempts",
+          "score": 7.3358
+        }
+      ],
+      "route": "grounded",
+      "route_reason": "kb",
+      "generator": "extractive",
+      "generator_notes": [],
+      "grounding": {
+        "coverage": 1.0,
+        "unsupported_lines": [],
+        "claim_hits": []
+      },
+      "confidence": 0.94,
+      "confidence_breakdown": {
+        "classifier": 1.0,
+        "retrieval": 0.7858,
+        "agreement": 1.0,
+        "grounding": 1.0
+      },
+      "needs_human_escalation": false,
+      "escalation_reasons": [
+        "confident grounded answer (confidence 0.94) with no policy or account-specific risk"
+      ],
+      "safety_flags": [],
+      "validation_errors": []
+    }
+  ]
+}

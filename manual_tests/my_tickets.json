@@ -1,0 +1,12 @@
+[
+  {
+    "id": "MY-01",
+    "message": "Replace this with your own ticket text",
+    "language": "en"
+  },
+  {
+    "id": "MY-02",
+    "message": "Add as many tickets as you like; ids must be unique",
+    "language": "en"
+  }
+]

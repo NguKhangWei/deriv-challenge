@@ -1,0 +1,67 @@
+[
+  {
+    "ticket_id": "T1",
+    "intent": "deposit_issue",
+    "retrieved_articles": [
+      "A1"
+    ],
+    "reply_draft": "Summary: Client has a deposit-related issue.\nKB guidance:\n- Card deposits are usually instant, but may be delayed by issuer checks, network issues, or pending review. [A1]\n- Ask the client to confirm successful payment, check transaction history, and wait up to the documented processing window before escalating. [A1]\nCautions:\n- Do not promise a deposit outcome or quote a specific processing time; the KB documents no exact timeframe.\nNext step: no escalation needed; respond using the KB guidance above.",
+    "grounded": true,
+    "confidence": 0.92,
+    "needs_human_escalation": false,
+    "safety_flags": []
+  },
+  {
+    "ticket_id": "T2",
+    "intent": "password_reset",
+    "retrieved_articles": [
+      "A2"
+    ],
+    "reply_draft": "Summary: Client has a password reset issue.\nKB guidance:\n- If the client does not receive a reset email, confirm the registered email address, check spam folders, wait a few minutes, and retry. [A2]\n- Repeated failed attempts may trigger temporary rate limits. [A2]\nNext step: no escalation needed; respond using the KB guidance above.",
+    "grounded": true,
+    "confidence": 0.94,
+    "needs_human_escalation": false,
+    "safety_flags": []
+  },
+  {
+    "ticket_id": "T3",
+    "intent": "withdrawal_issue",
+    "retrieved_articles": [
+      "A3"
+    ],
+    "reply_draft": "Summary: Client has a withdrawal-related issue.\nKB guidance:\n- Withdrawals may be declined due to incomplete verification, mismatched payment method details, compliance review, or account restrictions. [A3]\nCautions:\n- Support should not promise approval times without checking account status. [A3]\n- Do not promise a withdrawal outcome or approval time; the KB documents no exact timeframe.\nNext step: escalate to a human agent (answer requires the client's own account records; policy-sensitive topic (withdrawal_issue)).",
+    "grounded": true,
+    "confidence": 0.9,
+    "needs_human_escalation": true,
+    "safety_flags": [
+      "account_specific_request",
+      "policy_sensitive"
+    ]
+  },
+  {
+    "ticket_id": "T4",
+    "intent": "trading_advice_request",
+    "retrieved_articles": [
+      "A5"
+    ],
+    "reply_draft": "Summary: Client is making a request for trading advice or market predictions; decline politely.\nPolicy:\n- Support agents must not provide market predictions, profit guarantees, or asset recommendations. [A5]\n- Such requests should be politely declined and redirected to general educational resources if available. [A5]\nSuggested reply to client: \"Thank you for reaching out. We are unable to provide market predictions, profit guarantees, or recommendations on which assets to trade. If available, our general educational resources can help you learn how trading works.\"\nNext step: no escalation needed; send the suggested reply.",
+    "grounded": true,
+    "confidence": 0.95,
+    "needs_human_escalation": false,
+    "safety_flags": [
+      "advice_request"
+    ]
+  },
+  {
+    "ticket_id": "T5",
+    "intent": "account_lock",
+    "retrieved_articles": [
+      "A4"
+    ],
+    "reply_draft": "Summary: Client has an account lock or sign-in access issue.\nKB guidance:\n- For security reasons, repeated failed sign-in attempts can temporarily lock the account. [A4]\n- Advise the client to wait for the cooldown period or use the secure recovery flow. [A4]\nCautions:\n- Avoid sharing account-specific details in unsecured channels. [A4]\nNext step: no escalation needed; respond using the KB guidance above.",
+    "grounded": true,
+    "confidence": 0.94,
+    "needs_human_escalation": false,
+    "safety_flags": []
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "IRR-01",
+    "message": "Tell me a joke",
+    "language": "en"
+  },
+  {
+    "id": "IRR-02",
+    "message": "Who will win the football match tonight?",
+    "language": "en"
+  },
+  {
+    "id": "IRR-03",
+    "message": "Can you write Python code that sorts a list?",
+    "language": "en"
+  },
+  {
+    "id": "IRR-04",
+    "message": "asdfghjkl qwerty",
+    "language": "en"
+  },
+  {
+    "id": "IRR-05",
+    "message": "🙂🙂🙂",
+    "language": "en"
+  },
+  {
+    "id": "IRR-06",
+    "message": "How do I enable two-factor authentication?",
+    "language": "en"
+  },
+  {
+    "id": "IRR-07",
+    "message": "How do I close my account permanently?",
+    "language": "en"
+  }
+]

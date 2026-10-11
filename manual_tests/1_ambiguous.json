@@ -1,0 +1,47 @@
+[
+  {
+    "id": "AMB-01",
+    "message": "I topped up with my debit card this morning and the money still isn't in my account",
+    "language": "en"
+  },
+  {
+    "id": "AMB-02",
+    "message": "Too many wrong tries and now I'm shut out of my account",
+    "language": "en"
+  },
+  {
+    "id": "AMB-03",
+    "message": "my withdrawl was declind after verfication",
+    "language": "en"
+  },
+  {
+    "id": "AMB-04",
+    "message": "The reset link never shows up in my inbox",
+    "language": "en"
+  },
+  {
+    "id": "AMB-05",
+    "message": "My deposit is fine but I can't withdraw my money now",
+    "language": "en"
+  },
+  {
+    "id": "AMB-06",
+    "message": "My withdrawal was declined, should I sell my shares to cover it?",
+    "language": "en"
+  },
+  {
+    "id": "AMB-07",
+    "message": "Can I withdraw my profit?",
+    "language": "en"
+  },
+  {
+    "id": "AMB-08",
+    "message": "Is it a good time to buy gold?",
+    "language": "en"
+  },
+  {
+    "id": "AMB-09",
+    "message": "What fees do you charge on card deposits?",
+    "language": "en"
+  }
+]
